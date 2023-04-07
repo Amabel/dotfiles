@@ -1,5 +1,6 @@
-# for peco (history searching)
-# requires peco
+# For peco (history search)
+# Requires peco
+# https://github.com/peco/peco
 function peco-history-selection() {
     BUFFER="$(\history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
     CURSOR=$#BUFFER             # カーソルを文末に移動

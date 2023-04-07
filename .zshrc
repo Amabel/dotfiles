@@ -1,4 +1,5 @@
 # Start tmux
+# https://github.com/tmux/tmux
 [[ -z "$TMUX" ]] && tmux -u
 
 # Path to your oh-my-zsh installation.
@@ -16,6 +17,13 @@ ZSH_CUSTOM=$HOME/.zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+    git
+
+    # Install git-open as zsh plugins before using it.
+    # Run 'git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open'
+    # https://github.com/paulirish/git-open
+    git-open
+)
 
 source $ZSH/oh-my-zsh.sh
