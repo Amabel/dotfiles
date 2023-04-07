@@ -1,4 +1,4 @@
-# For peco (history search)
+# History search)
 # Requires peco
 # https://github.com/peco/peco
 function peco-history-selection() {
