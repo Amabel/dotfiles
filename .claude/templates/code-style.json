@@ -1,0 +1,76 @@
+{
+  "javascript": {
+    "formatter": "prettier",
+    "linter": "eslint",
+    "config": {
+      "semi": false,
+      "singleQuote": true,
+      "tabWidth": 2,
+      "trailingComma": "es5",
+      "printWidth": 80,
+      "bracketSpacing": true,
+      "arrowParens": "avoid"
+    },
+    "rules": {
+      "prefer-const": "error",
+      "no-var": "error",
+      "no-console": "warn",
+      "no-unused-vars": "error"
+    }
+  },
+  "typescript": {
+    "formatter": "prettier",
+    "linter": "eslint",
+    "config": {
+      "semi": false,
+      "singleQuote": true,
+      "tabWidth": 2,
+      "trailingComma": "es5"
+    },
+    "rules": {
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/prefer-const": "error"
+    }
+  },
+  "python": {
+    "formatter": "black",
+    "linter": "ruff",
+    "config": {
+      "line-length": 88,
+      "target-version": ["py38"],
+      "skip-string-normalization": false
+    },
+    "rules": {
+      "E501": "line too long",
+      "F401": "imported but unused",
+      "F841": "local variable is assigned to but never used"
+    }
+  },
+  "go": {
+    "formatter": "gofmt",
+    "linter": "golangci-lint",
+    "config": {
+      "tab-width": 1,
+      "use-tabs": true
+    }
+  },
+  "rust": {
+    "formatter": "rustfmt",
+    "linter": "clippy",
+    "config": {
+      "max_width": 100,
+      "hard_tabs": false,
+      "tab_spaces": 4
+    }
+  },
+  "general": {
+    "indentation": "spaces",
+    "indent_size": 2,
+    "end_of_line": "lf",
+    "charset": "utf-8",
+    "trim_trailing_whitespace": true,
+    "insert_final_newline": true,
+    "max_line_length": 80
+  }
+}

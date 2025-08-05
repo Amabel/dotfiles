@@ -1,0 +1,56 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Edit",
+      "MultiEdit",
+      "Write",
+      "Read",
+      "Glob",
+      "Grep",
+      "LS",
+      "TodoWrite",
+      "WebFetch",
+      "WebSearch"
+    ]
+  },
+  "environment": {
+    "GIT_COMMIT_TEMPLATE": "~/.claude/templates/commit-conventions.md",
+    "CODE_STYLE_CONFIG": "~/.claude/templates/code-style.json",
+    "PR_TEMPLATE": "~/.claude/templates/pr-checklist.md"
+  },
+  "preferences": {
+    "code_style": {
+      "javascript": {
+        "formatter": "prettier",
+        "linter": "eslint"
+      },
+      "python": {
+        "formatter": "black",
+        "linter": "ruff"
+      },
+      "go": {
+        "formatter": "gofmt"
+      },
+      "rust": {
+        "formatter": "rustfmt"
+      }
+    },
+    "git": {
+      "commit_message_style": "conventional",
+      "auto_sign_commits": false,
+      "default_branch": "main"
+    },
+    "pr": {
+      "auto_assign_reviewers": true,
+      "require_tests": true,
+      "auto_delete_branch": false
+    }
+  },
+  "verbose": false,
+  "theme": "default",
+  "feedbackSurveyState": {
+    "lastShownTime": 1754127252919
+  },
+  "$schema": "https://json.schemastore.org/claude-code-settings.json"
+}
