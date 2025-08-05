@@ -1,0 +1,62 @@
+name: Sync Claude Config to Dev Container Repo
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - '.claude/**'
+
+jobs:
+  sync-claude-config:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Checkout target repository
+      uses: actions/checkout@v4
+      with:
+        repository: Amabel/dotfiles-for-dev-container
+        token: ${{ secrets.TARGET_REPO_TOKEN }}
+        path: target-repo
+        fetch-depth: 0
+
+    - name: Sync .claude directory
+      run: |
+        # Remove existing .claude directory in target repo
+        rm -rf target-repo/.claude
+
+        # Copy .claude directory from source to target
+        cp -r .claude target-repo/
+
+        # Navigate to target repo directory
+        cd target-repo
+
+        # Configure git user
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+
+        # Add changes
+        git add .claude
+
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+
+        # Commit changes
+        git commit -m "chore: sync Claude config from dotfiles@${{ github.sha }}"
+
+        # Push changes
+        git push
+
+    - name: Summary
+      run: |
+        echo "✅ Successfully synced .claude directory to dotfiles-for-dev-container"
+        echo "📁 Source: Amabel/dotfiles/.claude"
+        echo "🎯 Target: Amabel/dotfiles-for-dev-container/.claude"
+        echo "🔗 Commit: ${{ github.sha }}"
