@@ -60,7 +60,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'on run argv' -e 'display notification (item 1 of argv as text) with title \"Claude Code\"' sound name \"Glass\"-e 'end run' \"$(jq -r '.transcript_path' | xargs tail -n 1 | jq -r '.message.content[0].text // \"Completed\"')\""
+            "command": "osascript -e 'on run argv' -e 'display notification (item 1 of argv as text) with title \"Claude Code\" sound name \"Glass\"' -e 'end run' \"$(jq -r '.transcript_path' | xargs tail -n 1 | jq -r '.message.content[0].text // \"Completed\"')\""
           }
         ]
       }

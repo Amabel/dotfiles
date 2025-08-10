@@ -79,6 +79,15 @@ else
     print_msg $YELLOW "⚠ Settings.json file does not exist, skipping"
 fi
 
+# Sync CLAUDE.md file
+if [ -f "$SOURCE_DIR/CLAUDE.md" ]; then
+    print_msg $BLUE "Syncing CLAUDE.md file..."
+    cp "$SOURCE_DIR/CLAUDE.md" "$TARGET_DIR/CLAUDE.md"
+    print_msg $GREEN "✓ CLAUDE.md file synced"
+else
+    print_msg $YELLOW "⚠ CLAUDE.md file does not exist, skipping"
+fi
+
 print_msg $GREEN "🎉 Claude configuration sync completed!"
 
 # Display synced directory structure

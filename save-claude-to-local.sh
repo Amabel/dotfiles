@@ -82,6 +82,15 @@ else
     print_msg $YELLOW "⚠ Settings.json file does not exist, skipping"
 fi
 
+# Copy CLAUDE.md file
+if [ -f "$SOURCE_DIR/CLAUDE.md" ]; then
+    print_msg $BLUE "Copying CLAUDE.md file..."
+    cp "$SOURCE_DIR/CLAUDE.md" "$TARGET_DIR/CLAUDE.md"
+    print_msg $GREEN "✓ CLAUDE.md file copied"
+else
+    print_msg $YELLOW "⚠ CLAUDE.md file does not exist, skipping"
+fi
+
 print_msg $GREEN "🎉 Claude configuration save to local completed!"
 
 print_msg $YELLOW "\nNote: Existing files were overwritten, but no files were deleted from ~/.claude"
